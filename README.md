@@ -1,95 +1,114 @@
-# Fly Voyages Algérie — Concept Site
+# Fly Voyages Algérie
 
-Premium, conversion-focused travel website concept for **Fly Voyages Algérie**,
-agence de voyages à **Béjaïa** (Rue Frères Tabet, Béjaïa 06000, Algérie — 0550 06 06 20).
+Premium, conversion-focused travel website for **Fly Voyages Algérie** —
+agence de voyages et de billetterie aérienne à **Béjaïa, Algérie**.
 
-> **Status:** client-acquisition DEMO. All offers/destinations are flagged
-> `isDemo: true` internally and carry a subtle **Concept** indicator publicly.
-> No prices, no availability, no partnerships, no hours are fabricated —
-> everything unverified is displayed as *« à confirmer »* or hidden.
+Built as a professional client-facing concept: the agency's future digital
+presence, ready to become the official website after approval.
 
-## Run locally
+> **Status:** professional demo / concept. All offers and destinations are
+> sample content, clearly flagged **Concept** on-screen and `isDemo: true`
+> in code. No prices, availability, partnerships, reviews or hours are
+> fabricated — unverified details display *« à confirmer »* or are hidden.
+
+## Overview
+
+A local travel agency in Béjaïa turned into a digital sales assistant.
+Visitors from Google, social media or word of mouth can:
+
+- discover destinations (Europe, Turkey, Middle East, Africa)
+- browse stay formats (**« Prix sur demande »** — never fake prices)
+- submit a **travel request** (the primary conversion: a qualified lead)
+- request a **flight ticket** or a **hotel**
+- reach the agency instantly by **WhatsApp** (contextual pre-filled
+  messages), **phone** or the contact form
+
+Every request is stored as a structured lead ready for a future dashboard.
+
+## Features
+
+- Homepage with cinematic hero and tabbed search (Voyage / Vol / Hôtel / Séjour)
+- Destination discovery with region filters + rich detail pages
+- Travel request engine with validation, success state and WhatsApp follow-up
+- Flight & hotel request pages (request flows — not a fake booking engine)
+- WhatsApp-first conversion: contextual `wa.me` deep links on every page,
+  floating button, sticky mobile CTA bar (WhatsApp / Appeler / Offre)
+- Structured lead API (`POST/GET /api/leads`) — CRM-swappable local store
+- **French + Arabic with full RTL**, cookie-persisted switch, server-rendered
+- City-level Béjaïa map (Leaflet + OpenStreetMap, graceful fallback)
+- Local SEO: per-page titles/descriptions, Open Graph, Twitter cards,
+  `sitemap.xml`, `robots.txt`, semantic HTML, accessible forms
+- Configurable registries: social links and services (visa, transfers…)
+  stay hidden until the agency confirms them — one toggle in `data/config.ts`
+- Premium visual identity: ink/cream/brass palette, Fraunces + Inter +
+  Noto Sans Arabic, local imagery, subtle motion (reduced-motion aware)
+
+## Tech Stack
+
+| Layer | Technology |
+| --- | --- |
+| Framework | Next.js 15 (App Router, RSC) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind CSS v4 (CSS-first theme tokens) |
+| Database | None required — structured local lead store (swap for Prisma/SQLite) |
+| Maps | Leaflet + OpenStreetMap (tiles load in the visitor's browser) |
+| Fonts | `@fontsource` (bundled, no runtime CDN) |
+| Images | Local assets in `public/images` (no external CDNs) |
+| Deployment | Any Node host; zero API keys required |
+
+## Getting Started
 
 ```bash
 npm install
 npm run dev        # http://localhost:3000
 ```
 
-Production:
+## Build
 
 ```bash
 npm run build
 npm run start -- -H 0.0.0.0 -p 3000
 ```
 
-No API keys required. The site is fully functional offline except OpenStreetMap
-map tiles, which load in the visitor's browser (graceful address fallback if
-unavailable).
+Typecheck: `npm run typecheck`.
 
-## Stack
+## Environment Variables
 
-- **Next.js 15** (App Router) + **TypeScript** (strict)
-- **Tailwind CSS v4** (design tokens in `app/globals.css` → `@theme`)
-- **Leaflet + OpenStreetMap** for the city-level Béjaïa map
-- Fonts bundled via `@fontsource` (Fraunces display serif, Inter, Noto Sans Arabic)
-- Imagery: local assets in `public/images` (no external CDNs)
-- Leads: structured local store (`lib/leads.ts` → `data/leads.json`, gitignored)
+No secrets are required — the site works out of the box without API keys.
+See [.env.example](.env.example):
 
-## Pages
+```bash
+NEXT_PUBLIC_SITE_URL=   # your real domain, for OG/sitemap/robots URLs
+```
 
-| Route | Purpose |
-| --- | --- |
-| `/` | Hero + tabbed search (Voyage / Vol / Hôtel / Séjour), featured destinations & offers, why-us, flight/hotel CTA band, inspiration, WhatsApp CTA, location + map |
-| `/destinations` | Filterable destination discovery (Europe, Turquie, Moyen-Orient, Afrique) |
-| `/destinations/[slug]` | Destination detail: why visit, periods, things to discover, styles, CTAs + related |
-| `/offres` | Offer catalogue — always **« Prix sur demande »**, hotels/departure « à confirmer » |
-| `/demande` | **Travel request engine** (destination, dates, travelers, type incl. Omra, budget, prefs, contact) → `TRAVEL_REQUEST` lead |
-| `/billets` | Flight request form → `FLIGHT_REQUEST` lead (explicitly NOT a booking engine) |
-| `/hotels` | Hotel request form → `HOTEL_REQUEST` lead |
-| `/contact` | Address, phone, WhatsApp, hours (à confirmer), message form → `CONTACT_REQUEST` lead, map |
-| `/a-propos` | Factual positioning, how it works, concept note |
+Set it when deploying to a real domain (e.g. `https://www.flyvoyages.dz`).
 
-## Lead engine (brief §18–19)
+## Demo
 
-- `POST /api/leads` — validates and stores structured leads
-  (`TRAVEL_REQUEST | FLIGHT_REQUEST | HOTEL_REQUEST | OFFER_REQUEST | CONTACT_REQUEST`)
-  with name, phone, WhatsApp, destination, dates, travelers, budget, message, meta, createdAt.
-- `GET /api/leads` — newest-first list: the hook for a future agency dashboard.
-- Swap `lib/leads.ts` for Prisma/SQLite later without touching the UI.
+- **Live:** https://3000-ifgawp5sl1cg1l92gizz6.e2b.app (demo server)
+- **This repository:** https://github.com/habibo-dev/fly-voyage
+- One-click Vercel deploy (recommended for a permanent client-facing URL):
+  [vercel.com/new](https://vercel.com/new) → import `habibo-dev/fly-voyage`
+  → branch `main` or `arena/01a09620-fly-voyage` → **Deploy** (no env vars
+  needed, or set `NEXT_PUBLIC_SITE_URL`).
 
-## Configuration (`data/config.ts`)
+## Project Structure
 
-- `AGENCY` — name, address, phone/WhatsApp, city-level map center
-  (exact pin intentionally **not** drawn — coordinates unverified).
-- `SOCIALS` — registry; empty = icon hidden (no invented URLs).
-- `SERVICES` — switches; `visa`, `carRental`, `transfer` default **off**
-  (configurable service modules per brief §13).
-- `SITE_URL` — override via `NEXT_PUBLIC_SITE_URL` env (used in metadata/sitemap).
+```
+app/            # routes: pages, API (/api/leads, /api/lang), sitemap, robots
+  demandes/     # travel request engine        /billets  # flight requests
+  hotels/       # hotel requests               /offres   # offer catalogue
+  destinations/ # listing + [slug] details
+components/     # UI: header, footer, cards, forms, map, WhatsApp, mobile CTA
+data/           # agency config + demo content (destinations, offers)
+lib/            # i18n dictionaries (FR/AR), lead store, WhatsApp helpers
+public/images/  # local imagery (photos + vector art)
+```
 
-## Internationalisation
+## Integrity
 
-- French (default) + Arabic with full **RTL** (logical CSS properties,
-  `dir="rtl"`, Noto Sans Arabic, mirrored icons).
-- Language switch persisted in the `fv-lang` cookie (`POST /api/lang`),
-  server-rendered on first paint.
-
-## SEO
-
-- Local-SEO titles/descriptions per page, Open Graph + Twitter cards,
-  `sitemap.xml`, `robots.txt`, semantic HTML, JSON-LD-free LocalBusiness
-  metadata via OpenGraph (`Fly Voyages Algérie — Agence de voyages à Béjaïa`).
-
-## Design system
-
-- Palette: **ink** (deep blue-black) / **cream** (warm paper) / **brass** (gold)
-  with a restrained **ocean** teal for chips; WhatsApp green reserved for
-  WhatsApp actions only.
-- Typography: Fraunces (display) + Inter (UI), Noto Sans Arabic for AR.
-- Motion: subtle scroll reveals + hover lifts, `prefers-reduced-motion` respected.
-
-## Demo integrity (brief §26–31, §30)
-
-- Every demo offer/destination: `isDemo: true` + subtle **Concept** chip.
-- Prices never shown — always **Prix sur demande**.
-- Hours: **À confirmer**. No fake reviews, awards, IATA, client counts,
-  urgency, countdowns or availability. No lorem ipsum. No broken links.
+- No API keys, tokens or credentials in the repository (audited)
+- `.gitignore` excludes all `.env*` variants; `.env.example` holds placeholders only
+- No private client information beyond the agency's own public business
+  details (name, address, phone — already public on Google)
+- No fake offers, reviews, certifications, urgency or availability

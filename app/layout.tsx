@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   },
   description:
     "Agence de voyages et de billetterie aérienne à Béjaïa : préparation de voyages, billets d'avion, séjours et circuits. Déposez votre demande, notre équipe vous recontacte par téléphone ou WhatsApp.",
+  // Canonical is only emitted once a real domain is configured,
+  // so the placeholder origin is never advertised to search engines.
+  alternates:
+    SITE_URL.includes("example.com") ? undefined : { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "fr_DZ",
