@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Aile d'avion au-dessus des nuages au soleil couchant">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#132538"/>
+      <stop offset="0.4" stop-color="#5a4438"/>
+      <stop offset="0.68" stop-color="#c98a5a"/>
+      <stop offset="1" stop-color="#f2d5a0"/>
+    </linearGradient>
+    <linearGradient id="cloud" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7ead2" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#e8c9a0" stop-opacity="0.55"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fbe6b8" stop-opacity="0.9"/>
+      <stop offset="0.6" stop-color="#f0c88c" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#f0c88c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+
+  <!-- sun -->
+  <circle cx="1130" cy="700" r="230" fill="url(#sunGlow)"/>
+  <circle cx="1130" cy="700" r="86" fill="#fbe6b8"/>
+
+  <!-- distant cloud banks -->
+  <g fill="#f4e3c4" opacity="0.28">
+    <ellipse cx="260" cy="430" rx="420" ry="46"/>
+    <ellipse cx="1180" cy="330" rx="520" ry="52"/>
+    <ellipse cx="700" cy="250" rx="360" ry="38"/>
+  </g>
+
+  <!-- contrail -->
+  <path d="M 700 560 C 480 560 300 520 60 540" stroke="#f6efe0" stroke-width="12" fill="none" opacity="0.5" stroke-linecap="round"/>
+  <path d="M 700 560 C 480 560 300 520 60 540" stroke="#f6efe0" stroke-width="26" fill="none" opacity="0.16" stroke-linecap="round"/>
+
+  <!-- airplane, top view, nose upper-right -->
+  <g transform="translate(760 545) rotate(24) scale(2.1)" fill="#faf5ea">
+    <path d="M0,-70 C6,-70 10,-50 10,-30 L10,20 L70,55 L70,68 L10,48 L8,90 L24,104 L24,112 L0,108 L-24,112 L-24,104 L-8,90 L-10,48 L-70,68 L-70,55 L-10,20 L-10,-30 C-10,-50 -6,-70 0,-70 Z"/>
+  </g>
+  <circle cx="760" cy="545" r="260" fill="url(#sunGlow)" opacity="0.35"/>
+
+  <!-- near clouds -->
+  <g fill="url(#cloud)">
+    <ellipse cx="180" cy="880" rx="560" ry="110"/>
+    <ellipse cx="720" cy="930" rx="620" ry="120"/>
+    <ellipse cx="1380" cy="870" rx="520" ry="105"/>
+  </g>
+  <g fill="#f9efdc" opacity="0.85">
+    <ellipse cx="330" cy="850" rx="430" ry="70"/>
+    <ellipse cx="1150" cy="830" rx="480" ry="74"/>
+  </g>
+</svg>

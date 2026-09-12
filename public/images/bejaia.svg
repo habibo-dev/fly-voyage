@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Front de mer de Béjaïa au coucher du soleil avec son phare">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#274766"/>
+      <stop offset="0.55" stop-color="#c98a5a"/>
+      <stop offset="0.8" stop-color="#f0c088"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a5a66"/>
+      <stop offset="1" stop-color="#0e2430"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fbe6b8" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#fbe6b8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="700" fill="url(#sky)"/>
+  <rect y="700" width="1600" height="300" fill="url(#sea)"/>
+
+  <!-- sun -->
+  <circle cx="620" cy="620" r="200" fill="url(#sunGlow)"/>
+  <circle cx="620" cy="620" r="64" fill="#fbe6b8"/>
+
+  <!-- sun path on the water -->
+  <g fill="#f2cf96">
+    <rect x="560" y="716" width="120" height="6" rx="3" opacity="0.5"/>
+    <rect x="548" y="740" width="150" height="6" rx="3" opacity="0.42"/>
+    <rect x="570" y="766" width="110" height="5" rx="2.5" opacity="0.36"/>
+    <rect x="540" y="792" width="160" height="6" rx="3" opacity="0.3"/>
+    <rect x="566" y="820" width="116" height="5" rx="2.5" opacity="0.24"/>
+    <rect x="548" y="850" width="146" height="6" rx="3" opacity="0.18"/>
+  </g>
+  <!-- gentle waves -->
+  <g stroke="#cfdce7" stroke-width="2" opacity="0.16" fill="none">
+    <path d="M0 740 Q 80 734 160 740 T 320 740 T 480 740"/>
+    <path d="M80 800 Q 160 794 240 800 T 400 800 T 560 800"/>
+    <path d="M200 880 Q 280 874 360 880 T 520 880 T 680 880"/>
+  </g>
+
+  <!-- sailboats -->
+  <g fill="#132435">
+    <g transform="translate(320 690)">
+      <path d="M0 0 L0 -44 L26 0 Z"/>
+      <path d="M-4 2 L30 2 L22 12 L4 12 Z"/>
+    </g>
+    <g transform="translate(180 706) scale(0.7)">
+      <path d="M0 0 L0 -44 L26 0 Z"/>
+      <path d="M-4 2 L30 2 L22 12 L4 12 Z"/>
+    </g>
+  </g>
+
+  <!-- right hill with old town -->
+  <path d="M980 1000 L1030 770 L1100 716 L1190 700 L1268 712 L1330 664 L1420 646 L1510 662 L1600 648 L1600 1000 Z" fill="#152a3d"/>
+
+  <!-- old town rooftops -->
+  <g>
+    <rect x="1130" y="742" width="44" height="30" fill="#c96a4a"/>
+    <rect x="1186" y="724" width="56" height="34" fill="#d98a5a"/>
+    <rect x="1254" y="738" width="40" height="28" fill="#b85a3e"/>
+    <rect x="1300" y="700" width="52" height="32" fill="#d98a5a"/>
+    <rect x="1364" y="676" width="46" height="30" fill="#c96a4a"/>
+    <rect x="1422" y="668" width="58" height="32" fill="#d98a5a"/>
+    <rect x="1492" y="680" width="44" height="28" fill="#b85a3e"/>
+    <rect x="1150" y="780" width="60" height="34" fill="#b85a3e"/>
+    <rect x="1224" y="776" width="48" height="32" fill="#d98a5a"/>
+    <rect x="1284" y="752" width="56" height="34" fill="#c96a4a"/>
+    <rect x="1352" y="720" width="48" height="32" fill="#d98a5a"/>
+    <rect x="1414" y="712" width="58" height="34" fill="#b85a3e"/>
+    <rect x="1486" y="724" width="50" height="32" fill="#d98a5a"/>
+  </g>
+  <!-- rooftop lights -->
+  <g fill="#f6d9a0" opacity="0.85">
+    <rect x="1144" y="752" width="4" height="4"/>
+    <rect x="1204" y="736" width="4" height="4"/>
+    <rect x="1318" y="712" width="4" height="4"/>
+    <rect x="1380" y="688" width="4" height="4"/>
+    <rect x="1440" y="680" width="4" height="4"/>
+    <rect x="1300" y="764" width="4" height="4"/>
+    <rect x="1432" y="724" width="4" height="4"/>
+  </g>
+
+  <!-- lighthouse -->
+  <g>
+    <circle cx="1310" cy="560" r="86" fill="#ffd98a" opacity="0.2"/>
+    <!-- beam -->
+    <polygon points="1304,560 1120,530 1120,596" fill="#ffd98a" opacity="0.14"/>
+    <polygon points="1318,560 1500,524 1500,592" fill="#ffd98a" opacity="0.1"/>
+    <!-- tower -->
+    <polygon points="1294,660 1302,576 1322,576 1330,660" fill="#f2ead9"/>
+    <rect x="1298" y="592" width="24" height="12" fill="#132435"/>
+    <rect x="1296" y="624" width="28" height="12" fill="#132435"/>
+    <!-- gallery + lamp -->
+    <rect x="1292" y="566" width="40" height="10" fill="#132435"/>
+    <rect x="1300" y="542" width="24" height="24" fill="#ffd98a"/>
+    <path d="M1298 542 Q 1312 524 1326 542 Z" fill="#132435"/>
+    <rect x="1310" y="512" width="4" height="16" fill="#132435"/>
+  </g>
+
+  <!-- promenade -->
+  <rect y="944" width="1600" height="56" fill="#0c1a29"/>
+  <g stroke="#0c1a29" stroke-width="6" opacity="0.9">
+    <line x1="0" y1="944" x2="1600" y2="944"/>
+  </g>
+  <g fill="#1d3348">
+    <g>
+      <rect x="60" y="912" width="6" height="32"/><rect x="160" y="912" width="6" height="32"/>
+      <rect x="260" y="912" width="6" height="32"/><rect x="360" y="912" width="6" height="32"/>
+      <rect x="460" y="912" width="6" height="32"/><rect x="560" y="912" width="6" height="32"/>
+      <rect x="660" y="912" width="6" height="32"/><rect x="760" y="912" width="6" height="32"/>
+      <rect x="860" y="912" width="6" height="32"/>
+    </g>
+    <rect x="20" y="908" width="900" height="6"/>
+  </g>
+</svg>

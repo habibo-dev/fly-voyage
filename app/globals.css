@@ -1,0 +1,143 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/noto-sans-arabic";
+@import "leaflet/dist/leaflet.css";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", "Noto Sans Arabic Variable", ui-sans-serif, system-ui,
+    "Segoe UI", Roboto, sans-serif;
+  --font-display: "Fraunces Variable", "Noto Sans Arabic Variable", ui-serif, Georgia, serif;
+
+  /* Ink — deep blue-black, the brand's dark */
+  --color-ink-950: #0a141f;
+  --color-ink-900: #10202f;
+  --color-ink-800: #17293c;
+  --color-ink-700: #24394f;
+  --color-ink-600: #35506b;
+  --color-ink-500: #4d6b88;
+  --color-ink-400: #7b93ab;
+  --color-ink-300: #a9bccd;
+  --color-ink-200: #cfdce7;
+  --color-ink-100: #e6edf3;
+
+  /* Cream — warm paper, the brand's light */
+  --color-cream-50: #faf8f3;
+  --color-cream-100: #f4f0e6;
+  --color-cream-200: #eae2d0;
+  --color-cream-300: #dcd0b6;
+  --color-cream-400: #c9b892;
+
+  /* Brass — refined gold accent */
+  --color-brass-300: #d9bc8a;
+  --color-brass-400: #c9a768;
+  --color-brass-500: #b3894a;
+  --color-brass-600: #97703a;
+  --color-brass-700: #7a592e;
+
+  /* Ocean — restrained Mediterranean teal (chips, small accents) */
+  --color-ocean-400: #5b9a93;
+  --color-ocean-500: #3f7f78;
+  --color-ocean-600: #31665f;
+
+  /* WhatsApp brand green — used only on WhatsApp actions */
+  --color-whatsapp: #1fae5a;
+  --color-whatsapp-dark: #178a48;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-cream-50 font-sans text-ink-900 antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brass-500);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+  ::selection {
+    background: var(--color-brass-300);
+    color: var(--color-ink-950);
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink-900 px-6 py-3 text-sm font-semibold text-cream-50 transition duration-200 hover:bg-ink-950;
+  }
+  .btn-brass {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brass-400 px-6 py-3 text-sm font-semibold text-ink-950 transition duration-200 hover:bg-brass-300;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink-900/20 px-6 py-3 text-sm font-semibold text-ink-900 transition duration-200 hover:border-ink-900/50 hover:bg-ink-900/5;
+  }
+  .btn-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-cream-50/40 px-6 py-3 text-sm font-semibold text-cream-50 transition duration-200 hover:border-cream-50/70 hover:bg-cream-50/10;
+  }
+  .btn-wa {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-6 py-3 text-sm font-semibold text-white transition duration-200 hover:bg-whatsapp-dark;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink-800;
+  }
+  .input {
+    @apply w-full rounded-xl border border-ink-900/15 bg-white px-4 py-3 text-[15px] text-ink-900 transition placeholder:text-ink-400 focus:border-brass-500 focus:outline-none focus:ring-2 focus:ring-brass-500/25;
+  }
+  .input-error {
+    @apply border-red-700/60 focus:border-red-700/60 focus:ring-red-700/20;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+  }
+  .card {
+    @apply rounded-2xl bg-white shadow-sm ring-1 ring-ink-900/5;
+  }
+}
+
+/* Subtle scroll reveal (JS adds .is-visible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Leaflet tweaks */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #dfe8ee;
+  font-family: inherit;
+}
+.fv-pin {
+  background: transparent;
+  border: none;
+}
